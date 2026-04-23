@@ -1,5 +1,7 @@
 # TourMart
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19709369.svg)](https://doi.org/10.5281/zenodo.19709369)
+
 A parametric audit instrument for commission steering in LLM travel agents.
 
 **Author**: [Yao Liu](https://orcid.org/0009-0009-3128-7802)
@@ -102,7 +104,9 @@ If you use TourMart in your research, please cite:
   author  = {Liu, Yao},
   title   = {TourMart: A Parametric Audit Instrument for Commission Steering in LLM Travel Agents},
   year    = {2026},
-  url     = {https://github.com/usmliuyao/tourmart}
+  version = {1.0.0},
+  doi     = {10.5281/zenodo.19709369},
+  url     = {https://doi.org/10.5281/zenodo.19709369}
 }
 ```
 

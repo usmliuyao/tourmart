@@ -4,6 +4,7 @@ type: software
 title: "TourMart: A Parametric Audit Instrument for Commission Steering in LLM Travel Agents"
 version: "1.0.0"
 date-released: "2026-04-21"
+doi: "10.5281/zenodo.19709369"
 license: MIT
 repository-code: "https://github.com/usmliuyao/tourmart"
 abstract: >
