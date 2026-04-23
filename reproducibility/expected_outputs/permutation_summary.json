@@ -1,0 +1,195 @@
+{
+  "script": "reproduce_permutation.py",
+  "pairing_key": "(scenario_id, traveler_id, bundle_id) — paper-reproducing 3-tuple",
+  "pairing_note": "Paper L197 describes 5-tuple (scenario, w, seed, traveler, bundle); the shipped 143-pair report was generated with 3-tuple key. 5-tuple re-pairing yields 409 pairs. We reproduce the published 143-pair analysis here.",
+  "n_perm": 1000,
+  "seed": 12345,
+  "generated_at_utc": "2026-04-22T00:33:09.951505Z",
+  "cap_values": [
+    0.01,
+    0.025,
+    0.05,
+    0.1,
+    0.2,
+    1.0
+  ],
+  "mult_values": [
+    1.0,
+    2.0,
+    3.0,
+    5.0,
+    10.0,
+    20.0
+  ],
+  "grid_shape": [
+    6,
+    6
+  ],
+  "cluster_unit": "scenario_id",
+  "label_swap_axis": "variant (original ↔ factual)",
+  "permutation_scheme": "within-cluster: flip coin per cluster (cluster-level exchangeability per paper L294)",
+  "arms": {
+    "qwen14b_awq": {
+      "observed": {
+        "max_abs_rd": 0.1048951048951049,
+        "max_signed_rd": 0.1048951048951049,
+        "argmax_cell_cap_mult": [
+          3,
+          2
+        ],
+        "per_cell_rd": [
+          [
+            0.02097902097902098,
+            0.02097902097902098,
+            0.02097902097902098,
+            0.02097902097902098,
+            0.02097902097902098,
+            0.02097902097902098
+          ],
+          [
+            0.04195804195804196,
+            0.03496503496503497,
+            0.03496503496503497,
+            0.03496503496503497,
+            0.03496503496503497,
+            0.03496503496503497
+          ],
+          [
+            0.07692307692307693,
+            0.06993006993006994,
+            0.055944055944055944,
+            0.055944055944055944,
+            0.055944055944055944,
+            0.055944055944055944
+          ],
+          [
+            0.07692307692307693,
+            0.09090909090909091,
+            0.1048951048951049,
+            0.08391608391608392,
+            0.055944055944055944,
+            0.055944055944055944
+          ],
+          [
+            0.07692307692307693,
+            0.09090909090909091,
+            0.1048951048951049,
+            0.08391608391608392,
+            0.055944055944055944,
+            0.055944055944055944
+          ],
+          [
+            0.07692307692307693,
+            0.09090909090909091,
+            0.1048951048951049,
+            0.08391608391608392,
+            0.055944055944055944,
+            0.055944055944055944
+          ]
+        ]
+      },
+      "null": {
+        "n_perm": 1000,
+        "seed": 12345,
+        "max_abs_quantiles": {
+          "50": 0.03496503496503497,
+          "90": 0.06293706293706294,
+          "95": 0.06993006993006994,
+          "99": 0.08391608391608392
+        },
+        "max_abs_mean": 0.0407972027972028,
+        "max_abs_std": 0.01527490317118575
+      },
+      "p_values": {
+        "two_sided_max_abs": 0.000999000999000999,
+        "one_sided_max_signed": 0.000999000999000999
+      },
+      "null_distribution_file": "permutation_null_qwen14b_awq.jsonl",
+      "n_paired_stimuli": 143,
+      "n_clusters": 88,
+      "raw_input_path": "${RESULTS_DIR}/phase1c_qwen14b_awq_diag_v4_report.with_episode_seed.raw.jsonl",
+      "raw_input_sha256": "b5fc95d11985a99ef33ab0e39e557daf20450b3991503defb2c94a56d921c027"
+    },
+    "llama31_8b": {
+      "observed": {
+        "max_abs_rd": 0.07692307692307693,
+        "max_signed_rd": 0.07692307692307693,
+        "argmax_cell_cap_mult": [
+          3,
+          1
+        ],
+        "per_cell_rd": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.006993006993006993,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.03496503496503497,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.03496503496503497,
+            0.07692307692307693,
+            0.04895104895104895,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.03496503496503497,
+            0.07692307692307693,
+            0.04895104895104895,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.03496503496503497,
+            0.07692307692307693,
+            0.04895104895104895,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      "null": {
+        "n_perm": 1000,
+        "seed": 12345,
+        "max_abs_quantiles": {
+          "50": 0.02097902097902098,
+          "90": 0.04895104895104895,
+          "95": 0.04895104895104895,
+          "99": 0.06293706293706294
+        },
+        "max_abs_mean": 0.027594405594405597,
+        "max_abs_std": 0.013489082355538633
+      },
+      "p_values": {
+        "two_sided_max_abs": 0.007992007992007992,
+        "one_sided_max_signed": 0.003996003996003996
+      },
+      "null_distribution_file": "permutation_null_llama31_8b.jsonl",
+      "n_paired_stimuli": 143,
+      "n_clusters": 88,
+      "raw_input_path": "${RESULTS_DIR}/phase1c_llama31_8b_diag_v4_report.with_episode_seed.raw.jsonl",
+      "raw_input_sha256": "484008b7822463bf72c464d6f0bf9332ade2fe94e4c7a7777dcbdbad8b10ec87"
+    }
+  }
+}

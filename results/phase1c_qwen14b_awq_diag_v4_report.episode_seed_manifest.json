@@ -1,0 +1,5216 @@
+{
+  "script_version": "1.0",
+  "generated_at_utc": "2026-04-22T00:09:15.774263Z",
+  "input_raw_jsonl": "${RESULTS_DIR}/phase1c_qwen14b_awq_diag_v4_report.raw.jsonl",
+  "input_raw_sha256": "9c0582b4a535b27563363f3513d4fdf3656bbcf95744758a66338579fe488684",
+  "output_raw_jsonl": "${RESULTS_DIR}/phase1c_qwen14b_awq_diag_v4_report.with_episode_seed.raw.jsonl",
+  "total_rows": 818,
+  "assignment_summary": {
+    "deterministic_sort": 464,
+    "unique_match": 354
+  },
+  "assignment_method": "unique_match: single msgcap episode matches; single_episode_multiple_reads: one episode produced multiple reader reads (diagnostic replay ran the same stimulus multiple times); deterministic_sort: N duplicate raw rows + N candidate episodes, assigned by sorted(candidate_episode_seed) in sorted(row_idx) order; count_mismatch/no_match: unresolved.",
+  "honest_limitation": "The original Phase 1c pool iteration order was not preserved in raw.jsonl. For deterministic_sort rows (192 of 818), the exact original episode_seed→row mapping is not recoverable from raw.jsonl alone; sorted-order is a reproducible convention. For exact round-trip reproducibility, the camera-ready package will ship the msgcap v4 JSONL + Phase 1c pool dump + this disambiguation script.",
+  "per_5tuple_details": [
+    {
+      "5tuple": [
+        "small_loose_s1010",
+        "t02",
+        "b01",
+        0.25,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 0,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 102,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1010",
+        "t02",
+        "b01",
+        0.25,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 1,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 103,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1073",
+        "t02",
+        "b01",
+        0.25,
+        "original"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 4,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 82,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 158,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1073",
+        "t02",
+        "b01",
+        0.25,
+        "factual"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 5,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 83,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 159,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1066",
+        "t01",
+        "b02",
+        0.25,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 6,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 132,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1066",
+        "t01",
+        "b02",
+        0.25,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 7,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 133,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1042",
+        "t02",
+        "b01",
+        0.25,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 8,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 52,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1042",
+        "t02",
+        "b01",
+        0.25,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 9,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 53,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1009",
+        "t02",
+        "b02",
+        0.25,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        19
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 10,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 58,
+          "episode_seed": 19
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1009",
+        "t02",
+        "b02",
+        0.25,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        19
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 11,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 59,
+          "episode_seed": 19
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1049",
+        "t00",
+        "b01",
+        0.25,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        19
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 12,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 36,
+          "episode_seed": 19
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1049",
+        "t00",
+        "b01",
+        0.25,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        19
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 13,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 37,
+          "episode_seed": 19
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1013",
+        "t02",
+        "b01",
+        0.25,
+        "original"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 18,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 72,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 108,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1013",
+        "t02",
+        "b01",
+        0.25,
+        "factual"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 19,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 73,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 109,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1021",
+        "t00",
+        "b01",
+        0.25,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 20,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 40,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1021",
+        "t00",
+        "b01",
+        0.25,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 21,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 41,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1069",
+        "t02",
+        "b02",
+        0.25,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        19
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 32,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 46,
+          "episode_seed": 19
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1069",
+        "t02",
+        "b02",
+        0.25,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        19
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 33,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 47,
+          "episode_seed": 19
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1058",
+        "t00",
+        "b05",
+        0.25,
+        "original"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 38,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 54,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 144,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1058",
+        "t00",
+        "b05",
+        0.25,
+        "factual"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 39,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 55,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 145,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1043",
+        "t00",
+        "b04",
+        0.25,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 42,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 78,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1043",
+        "t00",
+        "b04",
+        0.25,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 43,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 79,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1053",
+        "t01",
+        "b02",
+        0.25,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 50,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 138,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1053",
+        "t01",
+        "b02",
+        0.25,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 51,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 139,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1073",
+        "t00",
+        "b05",
+        0.25,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 76,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 92,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1073",
+        "t00",
+        "b05",
+        0.25,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 77,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 93,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1074",
+        "t02",
+        "b01",
+        0.25,
+        "original"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 84,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 96,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 98,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1074",
+        "t02",
+        "b01",
+        0.25,
+        "factual"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 85,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 97,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 99,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1012",
+        "t01",
+        "b02",
+        0.25,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 94,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 126,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1012",
+        "t01",
+        "b02",
+        0.25,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 95,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 127,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1041",
+        "t02",
+        "b02",
+        0.25,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        19
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 120,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 130,
+          "episode_seed": 19
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1041",
+        "t02",
+        "b02",
+        0.25,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        19
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 121,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 131,
+          "episode_seed": 19
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1570",
+        "t02",
+        "b02",
+        0.25,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        19
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 164,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 274,
+          "episode_seed": 19
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1570",
+        "t02",
+        "b02",
+        0.25,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        19
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 165,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 275,
+          "episode_seed": 19
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1512",
+        "t02",
+        "b01",
+        0.25,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        19
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 168,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 204,
+          "episode_seed": 19
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1512",
+        "t02",
+        "b01",
+        0.25,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        19
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 169,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 205,
+          "episode_seed": 19
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1517",
+        "t01",
+        "b02",
+        0.25,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 170,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 262,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1517",
+        "t01",
+        "b02",
+        0.25,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 171,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 263,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1558",
+        "t00",
+        "b05",
+        0.25,
+        "original"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 174,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 196,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 238,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1558",
+        "t00",
+        "b05",
+        0.25,
+        "factual"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 175,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 197,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 239,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1561",
+        "t00",
+        "b01",
+        0.25,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 182,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 212,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1561",
+        "t00",
+        "b01",
+        0.25,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 183,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 213,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1501",
+        "t01",
+        "b05",
+        0.25,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 198,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 310,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1501",
+        "t01",
+        "b05",
+        0.25,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 199,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 311,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1563",
+        "t02",
+        "b04",
+        0.25,
+        "original"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 202,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 210,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 296,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1563",
+        "t02",
+        "b04",
+        0.25,
+        "factual"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 203,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 211,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 297,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1524",
+        "t00",
+        "b05",
+        0.25,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 226,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 234,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1524",
+        "t00",
+        "b05",
+        0.25,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 227,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 235,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1521",
+        "t01",
+        "b01",
+        0.25,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 230,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 272,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1521",
+        "t01",
+        "b01",
+        0.25,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 231,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 273,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1567",
+        "t02",
+        "b02",
+        0.25,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        19
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 258,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 268,
+          "episode_seed": 19
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1567",
+        "t02",
+        "b02",
+        0.25,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        19
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 259,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 269,
+          "episode_seed": 19
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1510",
+        "t01",
+        "b02",
+        0.25,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 260,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 286,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1510",
+        "t01",
+        "b02",
+        0.25,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 261,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 287,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1041",
+        "t02",
+        "b02",
+        0.5,
+        "original"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 318,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 394,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 428,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1041",
+        "t02",
+        "b02",
+        0.5,
+        "factual"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 319,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 395,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 429,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1009",
+        "t02",
+        "b02",
+        0.5,
+        "original"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 320,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 384,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 472,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1009",
+        "t02",
+        "b02",
+        0.5,
+        "factual"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 321,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 385,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 473,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1012",
+        "t01",
+        "b02",
+        0.5,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 324,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 388,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1012",
+        "t01",
+        "b02",
+        0.5,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 325,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 389,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1010",
+        "t02",
+        "b01",
+        0.5,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 326,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 436,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1010",
+        "t02",
+        "b01",
+        0.5,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 327,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 437,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1021",
+        "t00",
+        "b02",
+        0.5,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 328,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 374,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1021",
+        "t00",
+        "b02",
+        0.5,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 329,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 375,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1002",
+        "t02",
+        "b05",
+        0.5,
+        "original"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 336,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 338,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 404,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1002",
+        "t02",
+        "b05",
+        0.5,
+        "factual"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 337,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 339,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 405,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1013",
+        "t02",
+        "b01",
+        0.5,
+        "original"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 340,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 366,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 408,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1013",
+        "t02",
+        "b01",
+        0.5,
+        "factual"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 341,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 367,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 409,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1030",
+        "t00",
+        "b05",
+        0.5,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 342,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 406,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1030",
+        "t00",
+        "b05",
+        0.5,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 343,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 407,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1074",
+        "t02",
+        "b01",
+        0.5,
+        "original"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 344,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 346,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 470,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1074",
+        "t02",
+        "b01",
+        0.5,
+        "factual"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 345,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 347,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 471,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1066",
+        "t01",
+        "b02",
+        0.5,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 350,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 454,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1066",
+        "t01",
+        "b02",
+        0.5,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 351,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 455,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1045",
+        "t00",
+        "b01",
+        0.5,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 354,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 446,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1045",
+        "t00",
+        "b01",
+        0.5,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 355,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 447,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1049",
+        "t00",
+        "b01",
+        0.5,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        19
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 358,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 432,
+          "episode_seed": 19
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1049",
+        "t00",
+        "b01",
+        0.5,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        19
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 359,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 433,
+          "episode_seed": 19
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1069",
+        "t02",
+        "b02",
+        0.5,
+        "original"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 360,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 392,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 424,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1069",
+        "t02",
+        "b02",
+        0.5,
+        "factual"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 361,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 393,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 425,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1042",
+        "t01",
+        "b01",
+        0.5,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        19
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 364,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 474,
+          "episode_seed": 19
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1042",
+        "t01",
+        "b01",
+        0.5,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        19
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 365,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 475,
+          "episode_seed": 19
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1007",
+        "t00",
+        "b02",
+        0.5,
+        "original"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 368,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 378,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 396,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1007",
+        "t00",
+        "b02",
+        0.5,
+        "factual"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 369,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 379,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 397,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1017",
+        "t02",
+        "b02",
+        0.5,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        19
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 370,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 380,
+          "episode_seed": 19
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1017",
+        "t02",
+        "b02",
+        0.5,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        19
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 371,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 381,
+          "episode_seed": 19
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1024",
+        "t00",
+        "b02",
+        0.5,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        19
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 386,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 414,
+          "episode_seed": 19
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1024",
+        "t00",
+        "b02",
+        0.5,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        19
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 387,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 415,
+          "episode_seed": 19
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1034",
+        "t02",
+        "b01",
+        0.5,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        19
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 390,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 410,
+          "episode_seed": 19
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1034",
+        "t02",
+        "b01",
+        0.5,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        19
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 391,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 411,
+          "episode_seed": 19
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1053",
+        "t01",
+        "b02",
+        0.5,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 412,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 456,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1053",
+        "t01",
+        "b02",
+        0.5,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 413,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 457,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1038",
+        "t00",
+        "b01",
+        0.5,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 418,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 448,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1038",
+        "t00",
+        "b01",
+        0.5,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 419,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 449,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1058",
+        "t00",
+        "b05",
+        0.5,
+        "original"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 434,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 464,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 468,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1058",
+        "t00",
+        "b05",
+        0.5,
+        "factual"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 435,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 465,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 469,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1010",
+        "t01",
+        "b04",
+        0.5,
+        "original"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 438,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 444,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 452,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1010",
+        "t01",
+        "b04",
+        0.5,
+        "factual"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 439,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 445,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 453,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1501",
+        "t01",
+        "b05",
+        0.5,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 476,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 528,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1501",
+        "t01",
+        "b05",
+        0.5,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 477,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 529,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1535",
+        "t02",
+        "b05",
+        0.5,
+        "original"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 480,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 526,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 578,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1535",
+        "t02",
+        "b05",
+        0.5,
+        "factual"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 481,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 527,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 579,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1558",
+        "t00",
+        "b05",
+        0.5,
+        "original"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 482,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 544,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 572,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1558",
+        "t00",
+        "b05",
+        0.5,
+        "factual"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 483,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 545,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 573,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1546",
+        "t01",
+        "b01",
+        0.5,
+        "original"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 486,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 492,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 512,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1546",
+        "t01",
+        "b01",
+        0.5,
+        "factual"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 487,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 493,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 513,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1553",
+        "t02",
+        "b02",
+        0.5,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        19
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 494,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 550,
+          "episode_seed": 19
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1553",
+        "t02",
+        "b02",
+        0.5,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        19
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 495,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 551,
+          "episode_seed": 19
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1541",
+        "t01",
+        "b03",
+        0.5,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 502,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 556,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1541",
+        "t01",
+        "b03",
+        0.5,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 503,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 557,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1563",
+        "t02",
+        "b04",
+        0.5,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 514,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 584,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1563",
+        "t02",
+        "b04",
+        0.5,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 515,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 585,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1570",
+        "t02",
+        "b02",
+        0.5,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        19
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 516,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 566,
+          "episode_seed": 19
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1570",
+        "t02",
+        "b02",
+        0.5,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        19
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 517,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 567,
+          "episode_seed": 19
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1551",
+        "t01",
+        "b03",
+        0.5,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 518,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 574,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1551",
+        "t01",
+        "b03",
+        0.5,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 519,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 575,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1512",
+        "t02",
+        "b01",
+        0.5,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        19
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 522,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 560,
+          "episode_seed": 19
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1512",
+        "t02",
+        "b01",
+        0.5,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        19
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 523,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 561,
+          "episode_seed": 19
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1521",
+        "t01",
+        "b01",
+        0.5,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 538,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 546,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1521",
+        "t01",
+        "b01",
+        0.5,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 539,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 547,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1545",
+        "t00",
+        "b01",
+        0.5,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 542,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 558,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1545",
+        "t00",
+        "b01",
+        0.5,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 543,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 559,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1010",
+        "t01",
+        "b04",
+        0.75,
+        "original"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 594,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 698,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 714,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1010",
+        "t01",
+        "b04",
+        0.75,
+        "factual"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 595,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 699,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 715,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1017",
+        "t02",
+        "b02",
+        0.75,
+        "original"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 596,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 642,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 666,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1017",
+        "t02",
+        "b02",
+        0.75,
+        "factual"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 597,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 643,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 667,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1024",
+        "t00",
+        "b02",
+        0.75,
+        "original"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 598,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 664,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 704,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1024",
+        "t00",
+        "b02",
+        0.75,
+        "factual"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 599,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 665,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 705,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1013",
+        "t02",
+        "b01",
+        0.75,
+        "original"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 600,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 612,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 712,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1013",
+        "t02",
+        "b01",
+        0.75,
+        "factual"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 601,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 613,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 713,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1053",
+        "t01",
+        "b02",
+        0.75,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 602,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 646,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1053",
+        "t01",
+        "b02",
+        0.75,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 603,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 647,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1003",
+        "t01",
+        "b03",
+        0.75,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 604,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 688,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1003",
+        "t01",
+        "b03",
+        0.75,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 605,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 689,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1043",
+        "t00",
+        "b04",
+        0.75,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 608,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 696,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1043",
+        "t00",
+        "b04",
+        0.75,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 609,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 697,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1016",
+        "t02",
+        "b04",
+        0.75,
+        "original"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 610,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 616,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 658,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1016",
+        "t02",
+        "b04",
+        0.75,
+        "factual"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 611,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 617,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 659,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1063",
+        "t01",
+        "b04",
+        0.75,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 614,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 676,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1063",
+        "t01",
+        "b04",
+        0.75,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 615,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 677,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1009",
+        "t02",
+        "b02",
+        0.75,
+        "original"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 618,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 684,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 692,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1009",
+        "t02",
+        "b02",
+        0.75,
+        "factual"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 619,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 685,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 693,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1069",
+        "t02",
+        "b02",
+        0.75,
+        "original"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 620,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 670,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 678,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1069",
+        "t02",
+        "b02",
+        0.75,
+        "factual"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 621,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 671,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 679,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1074",
+        "t02",
+        "b01",
+        0.75,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        19
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 624,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 706,
+          "episode_seed": 19
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1074",
+        "t02",
+        "b01",
+        0.75,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        19
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 625,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 707,
+          "episode_seed": 19
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1007",
+        "t00",
+        "b02",
+        0.75,
+        "original"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 626,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 648,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 674,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1007",
+        "t00",
+        "b02",
+        0.75,
+        "factual"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 627,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 649,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 675,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1021",
+        "t00",
+        "b01",
+        0.75,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 632,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 694,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1021",
+        "t00",
+        "b01",
+        0.75,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 633,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 695,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1058",
+        "t00",
+        "b05",
+        0.75,
+        "original"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 638,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 640,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 686,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1058",
+        "t00",
+        "b05",
+        0.75,
+        "factual"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 639,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 641,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 687,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1042",
+        "t01",
+        "b01",
+        0.75,
+        "original"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 650,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 662,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 672,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1042",
+        "t01",
+        "b01",
+        0.75,
+        "factual"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 651,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 663,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 673,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1046",
+        "t01",
+        "b01",
+        0.75,
+        "original"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 656,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 680,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 708,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1046",
+        "t01",
+        "b01",
+        0.75,
+        "factual"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 657,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 681,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 709,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1049",
+        "t00",
+        "b01",
+        0.75,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 660,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 716,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1049",
+        "t00",
+        "b01",
+        0.75,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 661,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 717,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1068",
+        "t00",
+        "b00",
+        0.75,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 690,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 710,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1068",
+        "t00",
+        "b00",
+        0.75,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 691,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 711,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1038",
+        "t00",
+        "b03",
+        0.75,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 700,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 702,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_loose_s1038",
+        "t00",
+        "b03",
+        0.75,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 701,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 703,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1558",
+        "t00",
+        "b05",
+        0.75,
+        "original"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 718,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 720,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 748,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1558",
+        "t00",
+        "b05",
+        0.75,
+        "factual"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 719,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 721,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 749,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1546",
+        "t01",
+        "b01",
+        0.75,
+        "original"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 724,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 752,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 772,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1546",
+        "t01",
+        "b01",
+        0.75,
+        "factual"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 725,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 753,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 773,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1563",
+        "t02",
+        "b04",
+        0.75,
+        "original"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 726,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 742,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 782,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1563",
+        "t02",
+        "b04",
+        0.75,
+        "factual"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 727,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 743,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 783,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1515",
+        "t02",
+        "b04",
+        0.75,
+        "original"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 728,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 764,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 800,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1515",
+        "t02",
+        "b04",
+        0.75,
+        "factual"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 729,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 765,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 801,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1518",
+        "t00",
+        "b02",
+        0.75,
+        "original"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 730,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 770,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 812,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1518",
+        "t00",
+        "b02",
+        0.75,
+        "factual"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 731,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 771,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 813,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1513",
+        "t02",
+        "b05",
+        0.75,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 732,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 758,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1513",
+        "t02",
+        "b05",
+        0.75,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 733,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 759,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1522",
+        "t01",
+        "b01",
+        0.75,
+        "original"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 734,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 750,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 766,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1522",
+        "t01",
+        "b01",
+        0.75,
+        "factual"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 735,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 751,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 767,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1521",
+        "t01",
+        "b01",
+        0.75,
+        "original"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 736,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 804,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 816,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1521",
+        "t01",
+        "b01",
+        0.75,
+        "factual"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 737,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 805,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 817,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1535",
+        "t02",
+        "b05",
+        0.75,
+        "original"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 738,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 776,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 778,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1535",
+        "t02",
+        "b05",
+        0.75,
+        "factual"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 739,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 777,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 779,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1551",
+        "t01",
+        "b03",
+        0.75,
+        "original"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 740,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 756,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 760,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1551",
+        "t01",
+        "b03",
+        0.75,
+        "factual"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 741,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 757,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 761,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1512",
+        "t02",
+        "b01",
+        0.75,
+        "original"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 744,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 806,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 814,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1512",
+        "t02",
+        "b01",
+        0.75,
+        "factual"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 745,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 807,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 815,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1545",
+        "t00",
+        "b01",
+        0.75,
+        "original"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 746,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 788,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 794,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1545",
+        "t00",
+        "b01",
+        0.75,
+        "factual"
+      ],
+      "n_rows": 3,
+      "candidates": [
+        17,
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 747,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 789,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 795,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1541",
+        "t01",
+        "b03",
+        0.75,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 754,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 798,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1541",
+        "t01",
+        "b03",
+        0.75,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 755,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 799,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1572",
+        "t00",
+        "b01",
+        0.75,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 780,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 784,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1572",
+        "t00",
+        "b01",
+        0.75,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        19,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 781,
+          "episode_seed": 19
+        },
+        {
+          "row_idx": 785,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1501",
+        "t01",
+        "b05",
+        0.75,
+        "original"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 790,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 802,
+          "episode_seed": 23
+        }
+      ]
+    },
+    {
+      "5tuple": [
+        "small_tight_s1501",
+        "t01",
+        "b05",
+        0.75,
+        "factual"
+      ],
+      "n_rows": 2,
+      "candidates": [
+        17,
+        23
+      ],
+      "status": "sorted_assignment",
+      "assignment": [
+        {
+          "row_idx": 791,
+          "episode_seed": 17
+        },
+        {
+          "row_idx": 803,
+          "episode_seed": 23
+        }
+      ]
+    }
+  ]
+}

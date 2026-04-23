@@ -1,0 +1,20 @@
+# TourMart reproducibility package — Python dependencies
+# Derived from /tourmart/pyproject.toml (project core + analysis extras).
+# GPU/vLLM dependencies are NOT required to reproduce the paper's headline
+# numbers; those require re-running LLM generation on Server B (RTX 3090).
+
+# --- Core (required for all scripts) ---
+numpy>=2.0
+ortools>=9.15
+
+# --- Analysis (required for reproduce_permutation.py, run_cap_ablation.py,
+#               generate_paper_figures.py, verify.py) ---
+statsmodels>=0.14
+scipy>=1.13
+matplotlib>=3.8
+pandas>=2.2
+
+# --- Optional: LLM re-generation (GPU required, Server B RTX 3090) ---
+# vllm>=0.6
+# transformers>=4.45
+# modelscope>=1.20

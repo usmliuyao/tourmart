@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# Environment-variable template for the chain-runner scripts.
+# Copy to run_config.sh (gitignored) and edit for your infrastructure,
+# then `source scripts/run_config.sh` before invoking any chain_runner_*.sh.
+#
+# The chain runners in this repo were originally tuned for a single NVIDIA
+# RTX 3090 24GB host (Server B in the paper). Budget 50-100 GB disk for
+# models + results.
+
+# Repository root (absolute path).
+export TOURMART_ROOT="$(pwd)"
+
+# Where chain runners write logs, markers, and intermediate JSONL.
+export RESULTS_DIR="${TOURMART_ROOT}/results"
+export LOGS_DIR="${TOURMART_ROOT}/logs"
+
+# Where HuggingFace and ModelScope model snapshots live.
+# The paper used Qwen2.5-7B-Instruct (OTA producer), Qwen2.5-14B-Instruct-AWQ
+# (reader arm 1), and Meta-Llama-3.1-8B-Instruct (reader arm 2).
+#
+# If both sources live under a single directory, point MODELS_DIR_MS to the
+# same place as MODELS_DIR.
+export MODELS_DIR="${HOME}/models"
+export MODELS_DIR_MS="${HOME}/models"
+
+mkdir -p "${RESULTS_DIR}" "${LOGS_DIR}"

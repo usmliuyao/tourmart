@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+*.log
+.DS_Store
+.aris/
+.ipynb_checkpoints/
+
+# Local run outputs (env-configured, not committed)
+run_outputs/
+logs/

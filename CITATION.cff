@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use TourMart in your research, please cite this software."
+type: software
+title: "TourMart: A Parametric Audit Instrument for Commission Steering in LLM Travel Agents"
+version: "1.0.0"
+date-released: "2026-04-21"
+license: MIT
+repository-code: "https://github.com/usmliuyao/tourmart"
+abstract: >
+  TourMart is a measurement instrument for LLM-OTA commission governance.
+  Two parameters—lambda (weight of message-induced perceptions) and kappa
+  (cap on net message-induced welfare adjustment)—are governance knobs, not
+  research hyperparameters. This package reproduces the paper's headline
+  numbers from raw data.
+
+authors:
+  - family-names: "Liu"
+    given-names: "Yao"
+    email: "liuyao@student.usm.my"
+    affiliation: "Department of Management and Media, The Engineering and Technology College, Chengdu University of Technology, Leshan 614000, China; and School of Computer Sciences, Universiti Sains Malaysia, 11800 Penang, Malaysia"
+    orcid: "https://orcid.org/0009-0009-3128-7802"

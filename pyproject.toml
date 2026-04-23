@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tourmart"
+version = "0.1.0"
+description = "TourMart: platform-governance benchmark for language-mediated tourism e-commerce"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=2.0",
+    "ortools>=9.15",
+    "pytest>=9.0",
+]
+
+[project.optional-dependencies]
+# E2+ LLM integration (Server B only — vLLM requires CUDA)
+llm = [
+    "vllm>=0.6",
+    "transformers>=4.45",
+    "modelscope>=1.20",
+]
+# Analysis (mixed-effects models, bootstrap, plots)
+analysis = [
+    "statsmodels>=0.14",
+    "scipy>=1.13",
+    "matplotlib>=3.8",
+    "pandas>=2.2",
+]
+# Convenience: everything
+dev = [
+    "tourmart[llm,analysis]",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
