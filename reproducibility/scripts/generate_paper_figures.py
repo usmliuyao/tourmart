@@ -42,6 +42,13 @@ _RESULTS_DIR = _REPO_ROOT / "results"
 FIG_DIR = _SCRIPT_DIR.parent / "figures"
 FIG_DIR.mkdir(exist_ok=True)
 
+# Figs 1-2 use the paper's PRIMARY full-identity 5-tuple pairing (n=409).
+# Import the canonical pairing so figures match Table 1 / abstract / Section 6.1 exactly.
+import sys as _sys
+if str(_SCRIPT_DIR) not in _sys.path:
+    _sys.path.insert(0, str(_SCRIPT_DIR))
+from reproduce_permutation_5tuple import load_raw as _load_raw_5t, pair_up_5tuple as _pair_up_5t
+
 # ======================================================================
 # Data extraction helpers (reused from run_cap_ablation + attribution)
 # ======================================================================
@@ -97,6 +104,13 @@ def load_paired(raw_path):
     return paired
 
 
+def load_paired_5tuple(raw_path):
+    """Full-identity 5-tuple pairing (n=409) — the paper's PRIMARY analysis.
+    Delegates to reproduce_permutation_5tuple so Figs 1-2 reproduce the same
+    pairing used by Table 1, the abstract, and the Section 6.1 attribution."""
+    return _pair_up_5t(_load_raw_5t(str(raw_path)))
+
+
 def rd_heatmap(paired, cap_values, mult_values, coefs=None):
     rd = np.zeros((len(mult_values), len(cap_values)))
     discord_pos = np.zeros_like(rd, dtype=int)
@@ -128,8 +142,8 @@ def figure_1():
     cap_values = [0.01, 0.025, 0.05, 0.10, 0.20, 1.00]
     mult_values = [1.0, 2.0, 3.0, 5.0, 10.0, 20.0]
 
-    qwen_paired = load_paired(_RESULTS_DIR / "phase1c_qwen14b_awq_diag_v4_report.raw.jsonl")
-    llama_paired = load_paired(_RESULTS_DIR / "phase1c_llama31_8b_diag_v4_report.raw.jsonl")
+    qwen_paired = load_paired_5tuple(_RESULTS_DIR / "phase1c_qwen14b_awq_diag_v4_report.with_episode_seed.raw.jsonl")
+    llama_paired = load_paired_5tuple(_RESULTS_DIR / "phase1c_llama31_8b_diag_v4_report.with_episode_seed.raw.jsonl")
     print(f"Fig1: Qwen n={len(qwen_paired)}, Llama n={len(llama_paired)}")
 
     fig, axes = plt.subplots(1, 2, figsize=(10, 4.2))
@@ -191,8 +205,8 @@ def figure_2():
     cap_values = [0.01, 0.025, 0.05, 0.10, 0.20, 1.00]
     mult_values = [1.0, 2.0, 3.0, 5.0, 10.0, 20.0]
 
-    qwen_paired = load_paired(_RESULTS_DIR / "phase1c_qwen14b_awq_diag_v4_report.raw.jsonl")
-    llama_paired = load_paired(_RESULTS_DIR / "phase1c_llama31_8b_diag_v4_report.raw.jsonl")
+    qwen_paired = load_paired_5tuple(_RESULTS_DIR / "phase1c_qwen14b_awq_diag_v4_report.with_episode_seed.raw.jsonl")
+    llama_paired = load_paired_5tuple(_RESULTS_DIR / "phase1c_llama31_8b_diag_v4_report.with_episode_seed.raw.jsonl")
 
     def max_valid_rd(paired, coefs):
         max_rd = -1e9

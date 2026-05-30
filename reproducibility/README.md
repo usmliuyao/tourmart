@@ -75,26 +75,39 @@ tourmart/
 
 ### What you are reproducing
 
+**PRIMARY — full-identity 5-tuple pairing (n=409):**
+
 | Paper number | Value | Script |
 |---|---|---|
-| Qwen-14B-AWQ: n paired | 143 | `reproduce_permutation.py` |
-| Qwen-14B-AWQ: +7.69pp at deployed (λ=1, κ=5%) | +7.69pp, McNemar p=0.003 | `reproduce_permutation.py` |
-| Qwen-14B-AWQ: CI [2.88, 13.24] | 95% CI | `reproduce_permutation.py` |
-| Qwen peak governance grid | +10.5pp at (λ=3, κ=10%) | `run_cap_ablation.py` |
-| Llama-3.1-8B: n paired | 143 | `reproduce_permutation.py` |
-| Llama-3.1-8B: +3.50pp at deployed (λ=1, κ=5%) | +3.50pp, McNemar p=0.063 | `reproduce_permutation.py` |
-| Llama peak governance grid | +7.7pp at (λ=2, κ=10%) | `run_cap_ablation.py` |
-| 1000-perm scenario-clustered max-stat null | Qwen p<0.001, Llama p=0.008 | `reproduce_permutation.py` |
-| 36-cell governance grid | Table 2 / Fig 1 | `run_cap_ablation.py` |
-| Paper figures (Figs 1-3) | heatmap, attribution, trajectory | `generate_paper_figures.py` |
+| Both arms: n paired | 409 (88 scenario clusters) | `reproduce_permutation_5tuple.py` |
+| Qwen-14B-AWQ deployed (λ=1, κ=5%) | +5.38pp, exact McNemar p<0.0001, **clustered permutation p=0.007** | `deployed_clustered_inference.py` |
+| Llama-3.1-8B deployed (λ=1, κ=5%) | +1.96pp, exact McNemar p=0.008, **clustered p=0.063 (directional)** | `deployed_clustered_inference.py` |
+| Qwen grid peak | +6.11pp at (λ=2, κ=10%) | `reproduce_permutation_5tuple.py` |
+| Llama grid peak | +10.02pp at (λ=2, κ=10%) | `reproduce_permutation_5tuple.py` |
+| 1000-perm scenario-clustered max-stat null | Qwen p=0.001, Llama p=0.003 | `reproduce_permutation_5tuple.py` |
+| 36-cell governance grid | Table 3 / Fig 1 | `run_cap_ablation.py` |
+| Channel knockout (Fig 2 / §6.1) | fit→3.18/2.44, trust→8.56/10.27 | `phase1c_coef_attribution_5tuple.json` |
+| Paper figures (Figs 1-2 = 5-tuple; Fig 3 = 3-tuple trajectory) | heatmap, attribution, trajectory | `generate_paper_figures.py` |
 
-### Pairing key — critical for n=143 (paper L197 footnote)
+**SENSITIVITY — legacy 3-tuple pairing (n=143), paper pairing-convention block:**
 
-`reproduce_permutation.py` uses the **3-tuple key** `(scenario_id, traveler_id, bundle_id)`
-to match original vs. factual stimulus variants. This reproduces the paper's published
-n=143 paired analysis. A 5-tuple key `(scenario_id, traveler_id, bundle_id, signal_wt,
-episode_seed)` yields n=409 and does NOT match the paper's Table 1 or abstract.
-The script explicitly documents this in its docstring and `--help` output.
+| Paper number | Value | Script |
+|---|---|---|
+| Both arms: n paired | 143 | `reproduce_permutation.py` |
+| Qwen deployed / peak | +7.69pp (p=0.003) / +10.49pp | `reproduce_permutation.py` |
+| Llama deployed / peak | +3.50pp (p=0.063) / +7.69pp | `reproduce_permutation.py` |
+
+### Pairing key — PRIMARY is the 5-tuple (n=409)
+
+`reproduce_permutation_5tuple.py` uses the **full-identity 5-tuple key**
+`(scenario_id, signal_wt, episode_seed, traveler_id, bundle_id)` to match original vs.
+factual stimulus variants. This is the paper's **PRIMARY** analysis (n=409; Table 1, Table 3,
+abstract). `reproduce_permutation.py` uses the legacy **3-tuple key**
+`(scenario_id, traveler_id, bundle_id)`; under last-write-wins it collapses distinct
+`(signal_wt, episode_seed)` episodes that share a triple into a single pair, yielding n=143.
+Because the 3-tuple overwrites genuinely distinct episodes, the paper adopts the 5-tuple as
+primary and reports the 3-tuple as a **pairing-convention sensitivity**. Both use seed 12345
+and the same `scenario_id` cluster unit (88 clusters).
 
 ### Permutation seed — paper-locked
 
@@ -105,9 +118,10 @@ the same headline p-values (to within floating-point tolerance).
 
 ### Cluster unit
 
-Cluster exchangeability is at the `scenario_id` level (88 unique scenarios for n=143 pairs),
-matching paper §D / L294: "88 unique scenarios." Within each permutation, all pairs
-sharing a scenario_id have their original↔factual labels flipped jointly.
+Cluster exchangeability is at the `scenario_id` level (88 unique scenarios; 409 pairs
+under the primary 5-tuple pairing), matching paper §D / L294: "88 unique scenarios."
+Within each permutation, all pairs sharing a scenario_id have their original↔factual
+labels flipped jointly.
 
 ---
 

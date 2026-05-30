@@ -38,21 +38,40 @@ INPUT_CHECKSUMS = {
 }
 
 # ---------------------------------------------------------------------------
-# Paper headline numbers for sanity-check (from paper abstract + §D).
-# These are the EXPECTED values from reproduce_permutation.py output.
+# Paper headline numbers for sanity-check (from paper abstract + Tables 1, 3).
+# PRIMARY = full-identity 5-tuple pairing (n=409) — the paper's primary analysis
+#   (permutation_summary_5tuple.json, reproduce_permutation_5tuple.py).
+# SENSITIVITY = 3-tuple pairing (n=143) — reported in the paper as a pairing-
+#   convention sensitivity (permutation_summary.json, reproduce_permutation.py).
+# Numbers are the grid-peak max|RD| under scenario-clustered max-stat permutation.
 # ---------------------------------------------------------------------------
-EXPECTED_HEADLINE = {
+EXPECTED_5TUPLE = {   # PRIMARY — paper Table 3 grid peak / abstract
+    "qwen14b_awq": {
+        "n_paired_stimuli": 409,
+        "n_clusters": 88,
+        "observed_max_abs_rd_pp": 6.11,    # ±0.02pp tolerance
+        "p_two_sided": 0.0011,             # ≤ this value (run: 0.001)
+    },
+    "llama31_8b": {
+        "n_paired_stimuli": 409,
+        "n_clusters": 88,
+        "observed_max_abs_rd_pp": 10.02,   # ±0.02pp tolerance
+        "p_two_sided": 0.0031,             # ≤ this value (run: 0.003)
+    },
+}
+
+EXPECTED_3TUPLE = {   # SENSITIVITY — paper pairing-convention block
     "qwen14b_awq": {
         "n_paired_stimuli": 143,
         "n_clusters": 88,
-        "observed_max_abs_rd_pp": 10.49,   # ±0.01pp tolerance
-        "p_two_sided": 0.001,              # ≤ this value
+        "observed_max_abs_rd_pp": 10.49,
+        "p_two_sided": 0.001,
     },
     "llama31_8b": {
         "n_paired_stimuli": 143,
         "n_clusters": 88,
-        "observed_max_abs_rd_pp": 7.69,    # ±0.01pp tolerance
-        "p_two_sided": 0.009,              # ≤ this value (paper: p=0.008)
+        "observed_max_abs_rd_pp": 7.69,
+        "p_two_sided": 0.009,
     },
 }
 
@@ -85,8 +104,8 @@ def check_inputs(results_dir: Path) -> bool:
     return ok
 
 
-def check_permutation_summary(summary_path: Path) -> bool:
-    print("--- Permutation summary headline check ---")
+def check_permutation_summary(summary_path: Path, expected: dict, label: str = "") -> bool:
+    print(f"--- Permutation summary headline check {label} ---")
     if not summary_path.exists():
         print(f"  MISSING: {summary_path}")
         return False
@@ -94,7 +113,7 @@ def check_permutation_summary(summary_path: Path) -> bool:
         summary = json.load(f)
     ok = True
     arms = summary.get("arms", {})
-    for arm_key, expected in EXPECTED_HEADLINE.items():
+    for arm_key, expected_arm in expected.items():
         if arm_key not in arms:
             print(f"  MISSING arm: {arm_key}")
             ok = False
@@ -106,14 +125,14 @@ def check_permutation_summary(summary_path: Path) -> bool:
         p_val = arm.get("p_values", {}).get("two_sided_max_abs", None)
 
         checks = [
-            (n_pairs == expected["n_paired_stimuli"],
-             f"n_paired_stimuli={n_pairs} (expected {expected['n_paired_stimuli']})"),
-            (n_clust == expected["n_clusters"],
-             f"n_clusters={n_clust} (expected {expected['n_clusters']})"),
-            (obs_rd is not None and abs(obs_rd * 100 - expected["observed_max_abs_rd_pp"]) < 0.02,
-             f"max_abs_rd={obs_rd*100:.2f}pp (expected ~{expected['observed_max_abs_rd_pp']:.2f}pp)"),
-            (p_val is not None and p_val <= expected["p_two_sided"],
-             f"p_two_sided={p_val:.4f} (expected ≤{expected['p_two_sided']:.3f})"),
+            (n_pairs == expected_arm["n_paired_stimuli"],
+             f"n_paired_stimuli={n_pairs} (expected {expected_arm['n_paired_stimuli']})"),
+            (n_clust == expected_arm["n_clusters"],
+             f"n_clusters={n_clust} (expected {expected_arm['n_clusters']})"),
+            (obs_rd is not None and abs(obs_rd * 100 - expected_arm["observed_max_abs_rd_pp"]) < 0.02,
+             f"max_abs_rd={obs_rd*100:.2f}pp (expected ~{expected_arm['observed_max_abs_rd_pp']:.2f}pp)"),
+            (p_val is not None and p_val <= expected_arm["p_two_sided"],
+             f"p_two_sided={p_val:.4f} (expected ≤{expected_arm['p_two_sided']:.4f})"),
         ]
         arm_ok = all(flag for flag, _ in checks)
         status = "PASS" if arm_ok else "FAIL"
@@ -127,9 +146,12 @@ def check_permutation_summary(summary_path: Path) -> bool:
 
 
 def compare_with_expected(run_dir: Path, expected_dir: Path) -> bool:
-    """Compare run outputs to expected_outputs/ by headline numbers."""
-    run_summary = run_dir / "permutation_summary.json"
-    return check_permutation_summary(run_summary)
+    """Compare fresh run outputs to paper headline numbers (5-tuple primary)."""
+    run_summary = run_dir / "permutation_summary_5tuple.json"
+    if not run_summary.exists():
+        run_summary = run_dir / "permutation_summary.json"  # fallback to 3-tuple run dir
+        return check_permutation_summary(run_summary, EXPECTED_3TUPLE, "(3-tuple fresh run)")
+    return check_permutation_summary(run_summary, EXPECTED_5TUPLE, "(PRIMARY 5-tuple fresh run)")
 
 
 def main():
@@ -163,13 +185,21 @@ def main():
 
     print()
 
-    # Step 2: compare shipped expected outputs against paper headlines
-    print("--- Checking expected_outputs/permutation_summary.json against paper numbers ---")
-    if not check_permutation_summary(expected_dir / "permutation_summary.json"):
+    # Step 2: compare shipped expected outputs against paper headlines.
+    # PRIMARY = 5-tuple (n=409, paper Table 1/3 + abstract).
+    # SENSITIVITY = 3-tuple (n=143, paper pairing-convention block).
+    print("--- Checking expected_outputs against paper numbers ---")
+    primary_ok = check_permutation_summary(
+        expected_dir / "permutation_summary_5tuple.json", EXPECTED_5TUPLE,
+        "(PRIMARY 5-tuple, n=409)")
+    sens_ok = check_permutation_summary(
+        expected_dir / "permutation_summary.json", EXPECTED_3TUPLE,
+        "(SENSITIVITY 3-tuple, n=143)")
+    if not (primary_ok and sens_ok):
         print("ERROR: Expected outputs do not match paper headline numbers.")
         all_ok = False
     else:
-        print("Expected outputs: ALL PASS")
+        print("Expected outputs: ALL PASS (5-tuple primary + 3-tuple sensitivity)")
 
     print()
 

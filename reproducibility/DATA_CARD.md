@@ -11,8 +11,8 @@
 
 | File | Description | Size | SHA-256 |
 |---|---|---|---|
-| `phase1c_qwen14b_awq_diag_v4_report.raw.jsonl` | Qwen-14B-AWQ Phase 1c diagnostic raw outputs (818 rows, 143 unique paired stimuli after 3-tuple dedup) | ~571 KB | `9c0582b4a535b27563363f3513d4fdf3656bbcf95744758a66338579fe488684` |
-| `phase1c_llama31_8b_diag_v4_report.raw.jsonl` | Llama-3.1-8B Phase 1c diagnostic raw outputs (818 rows, 143 unique paired stimuli) | ~694 KB | `21ba196bc280e58d1ac59532ea73adadc4d23497beeb8063c0e112aecc3195c1` |
+| `phase1c_qwen14b_awq_diag_v4_report.raw.jsonl` | Qwen-14B-AWQ Phase 1c diagnostic raw outputs (818 rows → 409 paired under primary 5-tuple key; 143 under legacy 3-tuple collapse) | ~571 KB | `9c0582b4a535b27563363f3513d4fdf3656bbcf95744758a66338579fe488684` |
+| `phase1c_llama31_8b_diag_v4_report.raw.jsonl` | Llama-3.1-8B Phase 1c diagnostic raw outputs (818 rows → 409 paired under primary 5-tuple key; 143 under legacy 3-tuple collapse) | ~694 KB | `21ba196bc280e58d1ac59532ea73adadc4d23497beeb8063c0e112aecc3195c1` |
 | `phase1c_qwen14b_awq_diag_v4_report.with_episode_seed.raw.jsonl` | Qwen raw with episode_seed column reconstructed by `add_episode_seed.py` | ~621 KB | `b5fc95d11985a99ef33ab0e39e557daf20450b3991503defb2c94a56d921c027` |
 | `phase1c_llama31_8b_diag_v4_report.with_episode_seed.raw.jsonl` | Llama raw with episode_seed column reconstructed by `add_episode_seed.py` | ~744 KB | `484008b7822463bf72c464d6f0bf9332ade2fe94e4c7a7777dcbdbad8b10ec87` |
 
@@ -20,9 +20,12 @@
 
 | File | Description | Lines | SHA-256 |
 |---|---|---|---|
-| `permutation_summary.json` | Headline permutation test results (p-values, observed max|RD|, null quantiles) for both arms | — | `f7122ca28655e64e2f6b201383a5d94cd5a62494bf0595cdf03b229e5ce3e9ff` |
-| `permutation_null_qwen14b_awq.jsonl` | Full 1000-permutation null distribution for Qwen-14B-AWQ | 1000 | `368c5690f1eb21fc239786add054f8674398c514aa1e2b14983ea24d850b21f6` |
-| `permutation_null_llama31_8b.jsonl` | Full 1000-permutation null distribution for Llama-3.1-8B | 1000 | `17fbe7d9989517ad8b8630af86110fef32b8577eb28470ab593ecee428955704` |
+| `permutation_summary_5tuple.json` | **PRIMARY** — full-identity 5-tuple (n=409) permutation results; reproduces paper Table 1/3 + abstract (Qwen peak +6.11pp p=0.001, Llama +10.02pp p=0.003). Regenerate via `reproduce_permutation_5tuple.py` (seed 12345). | — | (regenerable; verified by `verify.py`) |
+| `permutation_null_5tuple_qwen14b_awq.jsonl` | 5-tuple 1000-permutation null, Qwen | 1000 | (regenerable) |
+| `permutation_null_5tuple_llama31_8b.jsonl` | 5-tuple 1000-permutation null, Llama | 1000 | (regenerable) |
+| `permutation_summary.json` | **SENSITIVITY** — legacy 3-tuple (n=143) permutation results (Qwen +10.49pp, Llama +7.69pp); paper pairing-convention block | — | `f7122ca28655e64e2f6b201383a5d94cd5a62494bf0595cdf03b229e5ce3e9ff` |
+| `permutation_null_qwen14b_awq.jsonl` | 3-tuple 1000-permutation null, Qwen | 1000 | `368c5690f1eb21fc239786add054f8674398c514aa1e2b14983ea24d850b21f6` |
+| `permutation_null_llama31_8b.jsonl` | 3-tuple 1000-permutation null, Llama | 1000 | `17fbe7d9989517ad8b8630af86110fef32b8577eb28470ab593ecee428955704` |
 
 ---
 
@@ -64,7 +67,7 @@ The `episode_seed` column is present only in the `.with_episode_seed.raw.jsonl` 
 
 ## Pairing note (paper-critical)
 
-The paper's headline n=143 uses **3-tuple pairing** `(scenario_id, traveler_id, bundle_id)`. A 5-tuple pairing `(scenario_id, traveler_id, bundle_id, signal_wt, episode_seed)` yields n=409 and is NOT the published analysis. `reproduce_permutation.py` implements the 3-tuple key explicitly. See script docstring for details.
+The paper's **PRIMARY analysis uses the full-identity 5-tuple pairing** `(scenario_id, signal_wt, episode_seed, traveler_id, bundle_id)` → **n=409**, implemented in `reproduce_permutation_5tuple.py`. The legacy **3-tuple pairing** `(scenario_id, traveler_id, bundle_id)` collapses distinct `(signal_wt, episode_seed)` episodes under last-write-wins → n=143; because it overwrites genuinely distinct episodes, the paper adopts the 5-tuple as primary and reports the 3-tuple (`reproduce_permutation.py`) as a **pairing-convention sensitivity**. Both use seed 12345 and the `scenario_id` cluster unit (88 clusters).
 
 ---
 

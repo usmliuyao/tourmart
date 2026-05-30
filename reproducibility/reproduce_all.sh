@@ -41,11 +41,14 @@ echo "  PASS"
 echo ""
 
 # ---------------------------------------------------------------------------
-# Step 2: Run cap-ablation (36-cell governance grid)
-#   Pure Python, no GPU. ~8 min on CPU.
-#   Reproduces Table 2 / Fig 1 RD grid numbers.
+# Step 2: Run cap-ablation (36-cell governance grid), 3-tuple SENSITIVITY.
+#   Pure Python, no GPU. ~8 min on CPU. run_cap_ablation.py uses the legacy
+#   3-tuple pairing, so its grid peaks (+10.5/+7.7pp) are the SENSITIVITY grid.
+#   The PRIMARY 5-tuple grid peaks (+6.11/+10.02pp) and Fig 1 heatmap are
+#   produced by Step 3a (reproduce_permutation_5tuple.py) and Step 4
+#   (generate_paper_figures.py), and verified against expected_outputs.
 # ---------------------------------------------------------------------------
-echo "[Step 2] Cap-ablation 36-cell grid..."
+echo "[Step 2] Cap-ablation 36-cell grid (3-tuple sensitivity)..."
 python3 "${SCRIPTS_DIR}/run_cap_ablation.py" \
     --qwen-raw  "${RESULTS_DIR}/phase1c_qwen14b_awq_diag_v4_report.raw.jsonl" \
     --llama-raw "${RESULTS_DIR}/phase1c_llama31_8b_diag_v4_report.raw.jsonl" \
@@ -54,20 +57,38 @@ echo "  Wrote: ${OUT_DIR}/cap_ablation.md"
 echo ""
 
 # ---------------------------------------------------------------------------
-# Step 3: Run permutation null (1000-perm scenario-clustered max-stat)
-#   Pure Python + numpy, no GPU. ~2-5 min on CPU.
-#   Reproduces: Qwen p<0.001, Llama p=0.001 (paper abstract; paper §D/L294).
-#   Pairing: 3-tuple (scenario_id, traveler_id, bundle_id) → n=143 pairs.
+# Step 3: Permutation null (1000-perm scenario-clustered max-stat). Seed 12345.
+#   PRIMARY = full-identity 5-tuple pairing (scenario, signal_wt, episode_seed,
+#     traveler, bundle) -> n=409. Reproduces paper Table 1/3 + abstract:
+#     Qwen grid peak +6.11pp p=0.001, Llama +10.02pp p=0.003.
+#   SENSITIVITY = 3-tuple (scenario, traveler, bundle) -> n=143 (paper pairing-
+#     convention block: Qwen +10.49pp, Llama +7.69pp). The 3-tuple last-write-
+#     wins collapses distinct (signal_wt, episode_seed) episodes; the 5-tuple
+#     does not, and is therefore primary.
 #   Seed: 12345 (paper-locked; do not change).
 # ---------------------------------------------------------------------------
-echo "[Step 3] 1000-permutation scenario-clustered max-stat null..."
+echo "[Step 3a] PRIMARY 5-tuple permutation null (n=409)..."
+python3 "${SCRIPTS_DIR}/reproduce_permutation_5tuple.py" \
+    --qwen-raw  "${RESULTS_DIR}/phase1c_qwen14b_awq_diag_v4_report.with_episode_seed.raw.jsonl" \
+    --llama-raw "${RESULTS_DIR}/phase1c_llama31_8b_diag_v4_report.with_episode_seed.raw.jsonl" \
+    --out-dir   "${OUT_DIR}/permutation_null" \
+    --n-perm    1000 \
+    --seed      12345
+echo "  Wrote: ${OUT_DIR}/permutation_null/permutation_summary_5tuple.json"
+echo ""
+echo "[Step 3b] SENSITIVITY 3-tuple permutation null (n=143)..."
 python3 "${SCRIPTS_DIR}/reproduce_permutation.py" \
     --qwen-raw  "${RESULTS_DIR}/phase1c_qwen14b_awq_diag_v4_report.with_episode_seed.raw.jsonl" \
     --llama-raw "${RESULTS_DIR}/phase1c_llama31_8b_diag_v4_report.with_episode_seed.raw.jsonl" \
     --out-dir   "${OUT_DIR}/permutation_null" \
     --n-perm    1000 \
     --seed      12345
-echo "  Wrote: ${OUT_DIR}/permutation_null/"
+echo "  Wrote: ${OUT_DIR}/permutation_null/permutation_summary.json"
+echo ""
+echo "[Step 3c] Deployed-point cluster-robust inference (Table 1 clustered p)..."
+python3 "${SCRIPTS_DIR}/deployed_clustered_inference.py" \
+    "${RESULTS_DIR}/phase1c_qwen14b_awq_diag_v4_report.with_episode_seed.raw.jsonl" \
+    "${RESULTS_DIR}/phase1c_llama31_8b_diag_v4_report.with_episode_seed.raw.jsonl"
 echo ""
 
 # ---------------------------------------------------------------------------

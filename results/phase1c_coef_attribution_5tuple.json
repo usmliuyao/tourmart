@@ -1,0 +1,143 @@
+{
+  "description": "Channel attribution by coefficient knockout, FULL-IDENTITY 5-tuple pairing (n=409). PRIMARY evidence for paper Section 6.1 + Figure 2. Validity-filtered (cells with factual acceptance >=0.98 excluded), max RD over 36-cell (lambda x kappa) grid.",
+  "welfare_coefficients": {
+    "fit": 0.03,
+    "trust": 0.015,
+    "risk": 0.025,
+    "urgency": 0.01
+  },
+  "floor": -0.1,
+  "grid": {
+    "caps": [
+      0.01,
+      0.025,
+      0.05,
+      0.1,
+      0.2,
+      1.0
+    ],
+    "mults": [
+      1.0,
+      2.0,
+      3.0,
+      5.0,
+      10.0,
+      20.0
+    ]
+  },
+  "validity_filter": "exclude cells with factual acceptance >= 0.98",
+  "arms": {
+    "qwen14b_awq": {
+      "n_paired": 409,
+      "raw_input": "results/phase1c_qwen14b_awq_diag_v4_report.with_episode_seed.raw.jsonl",
+      "raw_input_sha256": "b5fc95d11985a99ef33ab0e39e557daf20450b3991503defb2c94a56d921c027",
+      "conditions": {
+        "full_rule": {
+          "max_rd_pp": 6.11,
+          "argmax_mult": 2.0,
+          "argmax_cap": 0.1,
+          "b": 25,
+          "c": 0
+        },
+        "no_fit": {
+          "max_rd_pp": 3.18,
+          "argmax_mult": 10.0,
+          "argmax_cap": 0.1,
+          "b": 18,
+          "c": 5
+        },
+        "no_trust": {
+          "max_rd_pp": 8.56,
+          "argmax_mult": 5.0,
+          "argmax_cap": 0.1,
+          "b": 37,
+          "c": 2
+        },
+        "no_risk": {
+          "max_rd_pp": 6.6,
+          "argmax_mult": 2.0,
+          "argmax_cap": 0.1,
+          "b": 27,
+          "c": 0
+        },
+        "no_urgency": {
+          "max_rd_pp": 6.11,
+          "argmax_mult": 2.0,
+          "argmax_cap": 0.1,
+          "b": 25,
+          "c": 0
+        },
+        "fit_only": {
+          "max_rd_pp": 8.56,
+          "argmax_mult": 5.0,
+          "argmax_cap": 0.1,
+          "b": 37,
+          "c": 2
+        },
+        "trust_only": {
+          "max_rd_pp": 2.93,
+          "argmax_mult": 5.0,
+          "argmax_cap": 0.1,
+          "b": 16,
+          "c": 4
+        }
+      }
+    },
+    "llama31_8b": {
+      "n_paired": 409,
+      "raw_input": "results/phase1c_llama31_8b_diag_v4_report.with_episode_seed.raw.jsonl",
+      "raw_input_sha256": "484008b7822463bf72c464d6f0bf9332ade2fe94e4c7a7777dcbdbad8b10ec87",
+      "conditions": {
+        "full_rule": {
+          "max_rd_pp": 10.02,
+          "argmax_mult": 2.0,
+          "argmax_cap": 0.1,
+          "b": 43,
+          "c": 2
+        },
+        "no_fit": {
+          "max_rd_pp": 2.44,
+          "argmax_mult": 5.0,
+          "argmax_cap": 0.1,
+          "b": 13,
+          "c": 3
+        },
+        "no_trust": {
+          "max_rd_pp": 10.27,
+          "argmax_mult": 3.0,
+          "argmax_cap": 0.1,
+          "b": 43,
+          "c": 1
+        },
+        "no_risk": {
+          "max_rd_pp": 6.85,
+          "argmax_mult": 2.0,
+          "argmax_cap": 0.1,
+          "b": 28,
+          "c": 0
+        },
+        "no_urgency": {
+          "max_rd_pp": 8.56,
+          "argmax_mult": 2.0,
+          "argmax_cap": 0.1,
+          "b": 36,
+          "c": 1
+        },
+        "fit_only": {
+          "max_rd_pp": 9.78,
+          "argmax_mult": 3.0,
+          "argmax_cap": 0.1,
+          "b": 41,
+          "c": 1
+        },
+        "trust_only": {
+          "max_rd_pp": 2.2,
+          "argmax_mult": 2.0,
+          "argmax_cap": 0.05,
+          "b": 9,
+          "c": 0
+        }
+      }
+    }
+  }
+}

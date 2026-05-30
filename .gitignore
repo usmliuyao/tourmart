@@ -14,3 +14,4 @@ build/
 # Local run outputs (env-configured, not committed)
 run_outputs/
 logs/
+reproducibility/figures/

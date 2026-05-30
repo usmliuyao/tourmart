@@ -22,10 +22,13 @@ A parametric audit instrument for commission steering in LLM travel agents.
    Qwen2.5-14B-Instruct-AWQ and Llama-3.1-8B-Instruct.
 4. The 36-cell `(lambda, kappa)` governance-grid sweep.
 5. The symmetric six-gate audit and the regex v2 refusal classifier.
-6. All 143 paired raw traveler outputs with extracted perception features.
+6. The 818 raw traveler-LLM call rows per arm, which pair under the
+   full-identity 5-tuple key `(scenario_id, signal_wt, episode_seed,
+   traveler_id, bundle_id)` to **409** paired outputs (PRIMARY); the
+   3-tuple-collapsed 143-pair pairing is retained as a sensitivity.
 7. The four audit markdown reports cited in the paper's Appendix D.3.
 
-The `reproducibility/` package reproduces Table 1, Table 2, and
+The `reproducibility/` package reproduces Table 1, Table 3, and
 Figures 1-3 in under 10 minutes on CPU.
 
 ---
@@ -46,8 +49,12 @@ python3 reproducibility/verify.py \
 bash reproducibility/reproduce_all.sh
 ```
 
-Expected output: `ALL CHECKS PASSED`, `+10.49pp` peak grid (Qwen-14B-AWQ arm),
-`+7.69pp` peak grid (Llama-3.1-8B arm), matched to within rounding tolerance.
+Expected output (PRIMARY, full-identity 5-tuple, n=409): `ALL CHECKS PASSED`,
+`+6.11pp` peak grid (Qwen-14B-AWQ arm, scenario-clustered max-stat p=0.001),
+`+10.02pp` peak grid (Llama-3.1-8B arm, p=0.003); deployed point (λ=1, κ=5%)
+`+5.38pp` Qwen (clustered permutation p=0.007) and `+1.96pp` Llama
+(clustered p=0.063, directional). The 3-tuple sensitivity (n=143) prints
+`+10.49pp` / `+7.69pp` peaks. All matched to within rounding tolerance.
 
 ---
 
@@ -84,7 +91,7 @@ tourmart/
 │   ├── run_coefficient_attribution.py   feature attribution
 │   ├── reproduce_permutation.py         cluster-bootstrap permutation null
 │   └── generate_paper_figures.py        Figs 1-3
-├── results/                           143 paired raw outputs + audit markdowns
+├── results/                           818 raw rows/arm → 409 paired (5-tuple) + audit markdowns
 ├── tests/                             unit tests for market, stats, audit
 ├── reproducibility/                   self-contained CPU-only repro package
 ├── figures/                           Figs 1-3 as PDF
