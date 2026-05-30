@@ -1,4 +1,10 @@
-# Coefficient attribution — v4 n=143
+# Coefficient attribution — v4 n=143  [SUPERSEDED — 3-tuple SENSITIVITY]
+
+> **SUPERSEDED.** This file is the legacy **3-tuple (n=143)** coefficient
+> attribution. The paper's Section 6.1 / Figure 2 use the **PRIMARY
+> full-identity 5-tuple (n=409)** attribution in
+> `phase1c_coef_attribution_5tuple.{json,md}` (fit→3.18/2.44, trust→8.56/10.27).
+> This 3-tuple file is retained only as a pairing-convention sensitivity.
 
 For each condition, we zero out one of the four perceived-feature coefficients and recompute max RD over the 2D grid. If the max RD drops substantially, that channel is load-bearing for the live transmission region.
 

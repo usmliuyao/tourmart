@@ -1,10 +1,14 @@
 #!/usr/bin/env python3
-"""Paper §D / L294 permutation test: 1000-perm scenario-clustered max-stat null.
+"""LEGACY 3-tuple permutation test (pairing-convention SENSITIVITY, NOT primary).
 
-Reproduces the published peak steering p-values:
+The paper's PRIMARY analysis is the full-identity 5-tuple pairing (n=409),
+reproduced by reproducibility/scripts/reproduce_permutation_5tuple.py. THIS
+script is the legacy 3-tuple pairing (n=143), reported only as a sensitivity.
+
+Reproduces the 3-tuple sensitivity peak steering p-values:
   - Qwen-14B-AWQ: observed peak max|RD| = +10.49pp, p < 0.001
   - Llama-3.1-8B: observed peak max|RD| = +7.69pp, p = 0.001
-  (paper abstract, L38 and L294)
+  (paper pairing-convention sensitivity block)
 
 Pairing key (IMPORTANT — reproduces paper):
   The shipped Phase 1c report was generated with a 3-tuple key

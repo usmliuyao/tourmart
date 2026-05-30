@@ -1,18 +1,24 @@
 #!/usr/bin/env python3
-"""Methodological-comparison sibling to reproduce_permutation.py: 5-tuple pairing.
+"""PRIMARY analysis: full-identity 5-tuple pairing (n=409).
 
-reproduce_permutation.py reproduces the paper's SHIPPED 3-tuple analysis
-(scenario_id, traveler_id, bundle_id) -> n=143, headline +7.69pp / +3.50pp.
-That 3-tuple key collapses distinct episodes that share (scenario, traveler,
-bundle) but differ in (signal_wt, episode_seed); under last-write-wins it keeps
-only one realization, which the run_phase1c_crossfamily.py battle-fix comment
-(2026-04-20) flags as "corrupting discordance counts."
+THIS is the paper's PRIMARY pairing (Table 1, Table 3, abstract): the
+full-identity 5-tuple key
+(scenario_id, signal_wt, episode_seed, traveler_id, bundle_id) -> n=409,
+with no episode collapse. It reproduces the headline grid peaks +6.11pp
+(Qwen) / +10.02pp (Llama) and the scenario-clustered max-stat p=0.001 / 0.003.
 
-THIS script uses the full-identity 5-tuple key
-(scenario_id, signal_wt, episode_seed, traveler_id, bundle_id) -> n=409, no
-episode collapse. Everything else (welfare rule, 36-cell grid, 1000-perm
-scenario-clustered max-stat null) is IDENTICAL to reproduce_permutation.py, so
-the only moving part is the pairing convention.
+reproduce_permutation.py is the LEGACY 3-tuple sibling
+(scenario_id, traveler_id, bundle_id) -> n=143, reported in the paper only as
+a PAIRING-CONVENTION SENSITIVITY (+10.49pp / +7.69pp peaks). The 3-tuple key
+collapses distinct episodes that share (scenario, traveler, bundle) but differ
+in (signal_wt, episode_seed); under last-write-wins it keeps only one
+realization, which the run_phase1c_crossfamily.py battle-fix comment
+(2026-04-20) flags as "corrupting discordance counts." Because the 3-tuple
+overwrites genuinely distinct episodes, the 5-tuple is primary.
+
+Everything else (welfare rule, 36-cell grid, 1000-perm scenario-clustered
+max-stat null, seed 12345) is IDENTICAL between the two scripts, so the only
+moving part is the pairing convention.
 
 Deployed-point cross-check (computed separately 2026-05-29, stored `accepted`):
   Qwen-14B:  3-tuple +7.69pp p=0.0034  ->  5-tuple +5.38pp p<0.0001 (b/c=24/2)

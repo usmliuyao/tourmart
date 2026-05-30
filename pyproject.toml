@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "tourmart"
-version = "0.1.0"
-description = "TourMart: platform-governance benchmark for language-mediated tourism e-commerce"
+version = "1.0.0"
+description = "TourMart: a parametric audit instrument for commission steering in LLM travel agents"
 requires-python = ">=3.10"
 dependencies = [
     "numpy>=2.0",

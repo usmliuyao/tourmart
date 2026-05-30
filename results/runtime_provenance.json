@@ -1,0 +1,44 @@
+{
+  "_description": "Runtime/provenance record for the TourMart reproducibility package. Referenced by reproducibility/README.md, DATA_CARD.md, and reproduce_all.sh.",
+  "hardware_for_gpu_regeneration": {
+    "gpu": "1x NVIDIA RTX 3090 24GB",
+    "cuda": "12.1",
+    "pytorch": "2.4.0+cu121",
+    "vllm": ">=0.6",
+    "note": "GPU required only to re-generate raw.jsonl from scratch; headline reproduction is CPU-only."
+  },
+  "cpu_reproduction": {
+    "requires_gpu": false,
+    "wall_time": "under 10 minutes on a standard CPU",
+    "steps": [
+      "verify.py input checksums",
+      "run_cap_ablation.py (36-cell grid, 3-tuple sensitivity)",
+      "reproduce_permutation_5tuple.py (PRIMARY n=409, 1000-perm)",
+      "reproduce_permutation.py (3-tuple sensitivity n=143)",
+      "deployed_clustered_inference.py (Table 1 clustered p)",
+      "generate_paper_figures.py (Figs 1-3)",
+      "verify.py output comparison"
+    ]
+  },
+  "gpu_regeneration_wall_times_as_stated_in_paper": {
+    "msgcap_qwen7b_v4_min": 13,
+    "msgcap_llama8b_v6_min": 20,
+    "six_gate_audit_min": 2,
+    "phase1c_paired_replay_min": 51,
+    "cap_ablation_grid_min": 8,
+    "total_approx_min": 94,
+    "_caveat": "Wall times are restated from the paper's experimental setup; a fresh re-benchmark with torch.cuda.Event instrumentation is a tracked CAMERA-READY OBLIGATION, not yet measured."
+  },
+  "pairing_convention": {
+    "primary": "full-identity 5-tuple (scenario_id, signal_wt, episode_seed, traveler_id, bundle_id) -> n=409",
+    "sensitivity": "legacy 3-tuple (scenario_id, traveler_id, bundle_id) -> n=143",
+    "permutation_seed": 12345,
+    "cluster_unit": "scenario_id (88 clusters)"
+  },
+  "camera_ready_obligations": [
+    "audit/regex_v2.patch — explicit diff for the six-gate refusal regex v1->v2 change",
+    "audit_gates_pre_v5.yaml — gate configuration snapshot from before the v5 (Mistral) failure",
+    "full conda env manifest from the GPU regeneration host",
+    "wall-time re-benchmark with torch.cuda.Event timing hooks"
+  ]
+}
